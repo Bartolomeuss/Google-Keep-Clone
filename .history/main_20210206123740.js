@@ -21,7 +21,6 @@ class App {
             this.openForm();
 
         } else{
-            this.closeForm(!isFormClicked)
 
         } 
     }
