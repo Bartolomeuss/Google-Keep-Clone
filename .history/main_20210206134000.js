@@ -17,10 +17,9 @@ class App {
             event.preventDefault();
             const title = this.$noteTitle.value;
             const text = this.$noteText.value;
-            const hasNote = title || text;
-            if(hasNote){
+
             console.log(`${title} ${text}`);
-            }
+
         });
     }
 

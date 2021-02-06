@@ -13,14 +13,13 @@ class App {
             this.handleFormClick(event);
         });
 
-        this.$form.addEventListener('submit', event => {
+        this.$form('submit', event => {
             event.preventDefault();
             const title = this.$noteTitle.value;
             const text = this.$noteText.value;
-            const hasNote = title || text;
-            if(hasNote){
-            console.log(`${title} ${text}`);
-            }
+
+            console.log(`${title}` ${text});
+
         });
     }
 
