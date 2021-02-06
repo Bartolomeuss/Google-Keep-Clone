@@ -2,11 +2,11 @@ class App {
     constructor() {
         this.notes = [];
 
-        this.$placeholder = document.querySelector('#placeholder');
-        this.$form = document.querySelector('#form');
-        this.$noteTitle = document.querySelector('#note-title');
-        this.$noteText = document.querySelector('#note-text');
-        this.$formButtons = document.querySelector('#form-buttons');
+
+       this.$form = document.querySelector('#form');
+       this.$noteTitle = document.querySelector('#note-title')
+       this.$noteText = document.querySelector('#note-text')
+       this.$formButtons = document.querySelector('#form-buttons')
         
        this.addEventListeners(); 
     }
@@ -62,18 +62,7 @@ class App {
             
         };
         this.notes = [...this.notes, newNote];
-        this.displayNotes();
-    }
-
-    displayNotes() {
-        const hasNotes = this.notes.length > 0;
-        if(hasNotes){
-            this.$placeholder.style.display = 'none';
-        } else{
-            this.$placeholder.style.display = 'flex';
-        }
-        this.notes.map()
-        
+        console.log(this.notes)
     }
 }
 

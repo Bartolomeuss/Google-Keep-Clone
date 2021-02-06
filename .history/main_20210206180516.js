@@ -72,7 +72,6 @@ class App {
         } else{
             this.$placeholder.style.display = 'flex';
         }
-        this.notes.map()
         
     }
 }
