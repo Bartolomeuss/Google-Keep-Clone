@@ -18,7 +18,6 @@ class App {
         document.body.addEventListener('click', event => {
             this.handleFormClick(event);
             this.openModal(event);
-            this.noteSelect(event);
         });
 
         this.$form.addEventListener('submit', event => {
@@ -71,7 +70,7 @@ class App {
 
     openModal(event) {
         if (event.target.closest('.note')){
-            this.$modal.classList.toggle('open-modal')
+            this.$modal.style.display = 'flex'
         }
     }
 
@@ -86,12 +85,6 @@ class App {
         this.notes = [...this.notes, newNote];
         this.displayNotes();
         this.closeForm();
-    }
-
-    noteSelect(event){
-        const $selectedNote = event.target.closest('.note');
-        const [$notetitle , $notetext] = $selectedNote.children;
-        console.log($notetitle, $notetext);
     }
 
     displayNotes() {

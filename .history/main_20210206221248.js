@@ -8,8 +8,7 @@ class App {
         this.$noteTitle = document.querySelector('#note-title');
         this.$noteText = document.querySelector('#note-text');
         this.$formButtons = document.querySelector('#form-buttons');
-        this.$fromCloseButton =document.querySelector('#form-close-button');
-        this.$modal = document.querySelector('.modal');
+        this.$fromCloseButton =document.querySelector('#form-close-button')
         
        this.addEventListeners(); 
     }
@@ -17,8 +16,6 @@ class App {
     addEventListeners() {
         document.body.addEventListener('click', event => {
             this.handleFormClick(event);
-            this.openModal(event);
-            this.noteSelect(event);
         });
 
         this.$form.addEventListener('submit', event => {
@@ -69,12 +66,6 @@ class App {
         this.$noteText.value =''; 
     }
 
-    openModal(event) {
-        if (event.target.closest('.note')){
-            this.$modal.classList.toggle('open-modal')
-        }
-    }
-
     addNote({ title, text}){
         const newNote = {
             title, 
@@ -86,12 +77,6 @@ class App {
         this.notes = [...this.notes, newNote];
         this.displayNotes();
         this.closeForm();
-    }
-
-    noteSelect(event){
-        const $selectedNote = event.target.closest('.note');
-        const [$notetitle , $notetext] = $selectedNote.children;
-        console.log($notetitle, $notetext);
     }
 
     displayNotes() {

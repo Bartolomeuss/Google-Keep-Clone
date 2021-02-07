@@ -90,8 +90,8 @@ class App {
 
     noteSelect(event){
         const $selectedNote = event.target.closest('.note');
-        const [$notetitle , $notetext] = $selectedNote.children;
-        console.log($notetitle, $notetext);
+        const [title , text] = $selectedNote;
+        console.log(title, text);
     }
 
     displayNotes() {

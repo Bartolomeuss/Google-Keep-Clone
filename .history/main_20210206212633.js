@@ -8,8 +8,6 @@ class App {
         this.$noteTitle = document.querySelector('#note-title');
         this.$noteText = document.querySelector('#note-text');
         this.$formButtons = document.querySelector('#form-buttons');
-        this.$fromCloseButton =document.querySelector('#form-close-button');
-        this.$modal = document.querySelector('.modal');
         
        this.addEventListeners(); 
     }
@@ -17,8 +15,6 @@ class App {
     addEventListeners() {
         document.body.addEventListener('click', event => {
             this.handleFormClick(event);
-            this.openModal(event);
-            this.noteSelect(event);
         });
 
         this.$form.addEventListener('submit', event => {
@@ -32,26 +28,17 @@ class App {
             
             }
         });
-
-        this.$fromCloseButton.addEventListener('click', event => {
-            event.stopPropagation();
-            this.closeForm();
-        })
     }
 
     handleFormClick(event) {
        const isFormClicked = this.$form.contains(event.target);
 
-            const title = this.$noteTitle.value;
-            const text = this.$noteText.value;
-            const hasNote = title || text;
-
         if(isFormClicked){
-        this.openForm();
-        } else if  (hasNote){
-        this.addNote({ title, text });
-        } else {
-        this.closeForm()
+
+            this.openForm();
+
+        } else{
+            this.closeForm()
 
         } 
     }
@@ -66,19 +53,13 @@ class App {
         this.$noteTitle.style.display = 'none';
         this.$formButtons.style.display = 'none';
         this.$noteTitle.value ='';
-        this.$noteText.value =''; 
+        this.$noteText.value ='';
     }
 
-    openModal(event) {
-        if (event.target.closest('.note')){
-            this.$modal.classList.toggle('open-modal')
-        }
-    }
-
-    addNote({ title, text}){
+    addNote(note){
         const newNote = {
-            title, 
-            text,
+            title: note.title, 
+            text: note.text,
             color: 'white',
             id: this.notes.length > 0 ? this.notes[this.notes.length -1].id + 1 : 1
             
@@ -86,12 +67,6 @@ class App {
         this.notes = [...this.notes, newNote];
         this.displayNotes();
         this.closeForm();
-    }
-
-    noteSelect(event){
-        const $selectedNote = event.target.closest('.note');
-        const [$notetitle , $notetext] = $selectedNote.children;
-        console.log($notetitle, $notetext);
     }
 
     displayNotes() {
