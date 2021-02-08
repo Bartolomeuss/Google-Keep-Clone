@@ -181,8 +181,8 @@ class App {
           <div class="note-text">${note.text}</div>
           <div class="toolbar-container">
             <div class="toolbar">
-              <img class="toolbar-color" data-id=${note.id} src="https://media.istockphoto.com/vectors/hallow-color-wheel-or-color-picker-circle-flat-vector-icon-for-u002f-vector-id1144362913?k=6&m=1144362913&s=612x612&w=0&h=_BsQKA9Fk0_NvTiU-DQSE8hD6-_w7VRE1CTGudVdekI=">
-              <img class="toolbar-delete" src="https://maxcdn.icons8.com/Share/icon/p1em/Editing/trash1600.png">
+              <img class="toolbar-color" data-id=${note.id} src="https://icon.now.sh/palette">
+              <img class="toolbar-delete" src="https://icon.now.sh/delete">
             </div>
           </div>
         </div>
