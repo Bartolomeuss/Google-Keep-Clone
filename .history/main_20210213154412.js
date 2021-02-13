@@ -209,4 +209,3 @@ class App {
 
 new App();
 // ad darkmode functionality according to the system settings
-// re source the icons
